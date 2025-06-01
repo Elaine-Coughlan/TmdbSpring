@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: MovieHub
+
+#Database development
+datasource:
+  url: jdbc:h2:mem:moviehub
+  driver-class-name: org.h2.Driver
+  username: sa
+  password: password
+
+h2:
+  console:
+    enabled: true
+    path: /h2-console
+
+jpa:
+  hibernate:
+    ddl-auto: create-drop
+  show-sql: true
+  properties:
+    hibernate:
+      format_sql: true
+
+tmdb:
+  api:
+    key: ${TMDB_API_KEY:your-api-key-here}
+    base-url: https://api.themoviedb.org/3
+    image-base-url: https://image.tmdb.org/t/p
+    timeout: 10000
+
+logging:
+  level:
+     com.moviehub: DEBUG
+     org.springframework.security: DEBUG
+
